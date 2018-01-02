@@ -1,4 +1,4 @@
-package tacos.domain;
+package exemplo.tacos.domain;
 
 import java.io.Serializable;
 import java.util.ArrayList;

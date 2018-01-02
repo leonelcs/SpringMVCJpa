@@ -1,10 +1,10 @@
-package tacos.data;
+package exemplo.tacos.data;
 
 import java.util.List;
 
 import org.springframework.data.repository.CrudRepository;
 
-import tacos.domain.Order;
+import exemplo.tacos.domain.Order;
 
 public interface OrderRepository extends CrudRepository<Order, Long> {
 	

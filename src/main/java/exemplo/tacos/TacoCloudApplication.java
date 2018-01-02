@@ -1,4 +1,4 @@
-package tacos;
+package exemplo.tacos;
 
 import java.util.Arrays;
 
@@ -9,9 +9,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
-import tacos.data.IngredientRepository;
-import tacos.domain.Ingredient;
-import tacos.domain.Ingredient.Type;
+import exemplo.tacos.data.IngredientRepository;
+import exemplo.tacos.domain.Ingredient;
+import exemplo.tacos.domain.Ingredient.Type;
 
 @SpringBootApplication
 public class TacoCloudApplication extends WebMvcConfigurerAdapter implements CommandLineRunner {

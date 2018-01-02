@@ -1,4 +1,4 @@
-package tacos.controller;
+package exemplo.tacos.controller;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,13 +16,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
+import exemplo.tacos.data.IngredientRepository;
+import exemplo.tacos.data.TacoRepository;
+import exemplo.tacos.domain.Ingredient;
+import exemplo.tacos.domain.Ingredient.Type;
+import exemplo.tacos.domain.Order;
+import exemplo.tacos.domain.Taco;
 import lombok.extern.slf4j.Slf4j;
-import tacos.data.IngredientRepository;
-import tacos.data.TacoRepository;
-import tacos.domain.Ingredient;
-import tacos.domain.Ingredient.Type;
-import tacos.domain.Order;
-import tacos.domain.Taco;
 
 @Slf4j
 @Controller

@@ -1,8 +1,8 @@
-package tacos.data;
+package exemplo.tacos.data;
 
 import org.springframework.data.repository.CrudRepository;
 
-import tacos.domain.Taco;
+import exemplo.tacos.domain.Taco;
 
 public interface TacoRepository extends CrudRepository<Taco, Long> {
 

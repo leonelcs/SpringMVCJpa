@@ -1,4 +1,4 @@
-package tacos.domain;
+package exemplo.tacos.domain;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
