@@ -1,6 +1,7 @@
-package exemplo.tacos.domain;
+package tacos.domain;
 
-import java.util.Date;
+import java.sql.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -17,19 +18,24 @@ import lombok.Data;
 @Data
 @Entity
 public class Taco {
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
+
 	@NotNull
 	@Size(min = 5, message = "Name must be at least 5 characters long")
 	private String name;
+
 	private Date createdAt;
+
 	@ManyToMany(targetEntity = Ingredient.class)
 	@Size(min = 1, message = "You must choose at least 1 ingredient")
 	private List<Ingredient> ingredients;
 
 	@PrePersist
 	void createdAt() {
-		this.createdAt = new Date();
+		this.createdAt = Date.valueOf((LocalDate.now()));
 	}
+
 }

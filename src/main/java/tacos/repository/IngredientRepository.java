@@ -1,9 +1,11 @@
-package exemplo.tacos.data;
+package tacos.repository;
 
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
 
-import exemplo.tacos.domain.Ingredient;
+import tacos.domain.Ingredient;
 
+@Repository
 public interface IngredientRepository extends CrudRepository<Ingredient, String> {
-
+	
 }

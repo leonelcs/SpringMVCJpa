@@ -32,7 +32,33 @@ create table if not exists Taco_Order_Tacos (
 tacoOrder bigint not null,
 taco bigint not null
 );
+
+
 alter table Taco_Order_Tacos
 add foreign key (tacoOrder) references Taco_Order(id);
 alter table Taco_Order_Tacos
 add foreign key (taco) references Taco(id);
+
+create table if not exists Users (
+username varchar(64) not null,
+password varchar(64) not null,
+enabled boolean
+);
+
+create table if not exists authorities (
+username varchar(64) not null,
+authority varchar(15) not null,
+);
+
+create table if not exists groups (
+id identity not null,
+group_name varchar(64) not null,
+authority varchar(15) not null
+);
+
+alter table authorities
+add foreign key (username) references Users(username);
+
+alter table groups
+add foreign key (authority) references authorities(authority);
+

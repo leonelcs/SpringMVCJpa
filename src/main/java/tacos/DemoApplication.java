@@ -1,4 +1,4 @@
-package exemplo.tacos;
+package tacos;
 
 import java.util.Arrays;
 
@@ -9,23 +9,19 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
-import exemplo.tacos.data.IngredientRepository;
-import exemplo.tacos.domain.Ingredient;
-import exemplo.tacos.domain.Ingredient.Type;
+import tacos.domain.Ingredient;
+import tacos.domain.Ingredient.Type;
+import tacos.repository.IngredientRepository;
+
 
 @SpringBootApplication
-public class TacoCloudApplication extends WebMvcConfigurerAdapter implements CommandLineRunner {
+public class DemoApplication implements CommandLineRunner {
 	
 	@Autowired
 	IngredientRepository repo;
 
 	public static void main(String[] args) {
-		SpringApplication.run(TacoCloudApplication.class, args);
-	}
-	
-	@Override
-	public void addViewControllers(ViewControllerRegistry registry) {
-		registry.addViewController("/").setViewName("home");
+		SpringApplication.run(DemoApplication.class, args);
 	}
 	
 	@Override

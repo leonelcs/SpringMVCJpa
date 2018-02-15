@@ -1,8 +1,9 @@
-package exemplo.tacos.domain;
+package tacos.domain;
 
 import java.io.Serializable;
+import java.sql.Date;
+import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -10,6 +11,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.PrePersist;
 import javax.persistence.Table;
 import javax.validation.constraints.Digits;
@@ -28,7 +30,9 @@ public class Order implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
+
 	private Date placedAt;
+
 	@NotBlank(message = "Name is required")
 	private String name;
 	@NotBlank(message = "Street is required")
@@ -37,8 +41,8 @@ public class Order implements Serializable {
 	private String city;
 	@NotBlank(message = "State is required")
 	private String state;
-	@NotBlank(message = "Delivery Zip code is required")
-	private String deliveryZip;
+	@NotBlank(message = "Zip code is required")
+	private String zip;
 	@CreditCardNumber(message = "Not a valid credit card number")
 	private String ccNumber;
 	@Pattern(regexp = "^(0[1-9]|1[0-2])([\\/])([1-9][0-9])$", message = "Must be formatted MM/YY")
@@ -48,6 +52,11 @@ public class Order implements Serializable {
 
 	@ManyToMany(targetEntity = Taco.class)
 	private List<Taco> tacos = new ArrayList<>();
+	
+	@ManyToOne
+	private User user;
+	
+	
 
 	public void addDesign(Taco design) {
 		this.tacos.add(design);
@@ -55,6 +64,7 @@ public class Order implements Serializable {
 
 	@PrePersist
 	void placedAt() {
-		this.placedAt = new Date();
+		this.placedAt = Date.valueOf(LocalDate.now());
 	}
+
 }

@@ -5,6 +5,15 @@
 </head>
 <body>
 	<h1>Welcome to...</h1>
-	<img th:src="@{/images/TacoCloud.jpg}" />
+	<img th:src="@{/images/TacoCloud.png}" />
+	<br />
+	<br />
+	<div class="ingredient-group">
+		<h3>Last orders</h3>
+			<div th:each="order : ${orders}">
+				<span th:text="${order.name}">ORDER</span><br />
+				
+			</div>
+	</div>	
 </body>
 </html>

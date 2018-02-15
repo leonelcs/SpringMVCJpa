@@ -1,7 +1,8 @@
-package exemplo.tacos.domain;
+package tacos.domain;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 import lombok.AccessLevel;
 import lombok.Data;
@@ -13,6 +14,7 @@ import lombok.RequiredArgsConstructor;
 @NoArgsConstructor(access=AccessLevel.PRIVATE, force=true)
 @Entity
 public class Ingredient {
+
 	@Id
 	private final String id;
 	private final String name;
@@ -21,4 +23,5 @@ public class Ingredient {
 	public static enum Type {
 		WRAP, PROTEIN, VEGGIES, CHEESE, SAUCE
 	}
+
 }
